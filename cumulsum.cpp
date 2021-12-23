@@ -10,6 +10,11 @@ $ g++-4.7  -funroll-loops -O3 -o cumulsum cumulsum.cpp
 $ ./unrolldeltas 
 
 but we want to avoid the -funroll-loops flag.
+ *
+ * Original location for that file is :
+ *
+ * https://github.com/lemire/Code-used-on-Daniel-Lemire-s-blog/tree/master/2012/07/23
+ *
 */
 
 
