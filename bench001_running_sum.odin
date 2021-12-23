@@ -44,6 +44,7 @@ main :: proc() {
 
 
     // Creating the array on which to apply the running sum
+    // I time it but that's not the point of this microbenchmark
     start := libc.clock()
     vals := givemeanarray(N)
     end := libc.clock()
@@ -66,6 +67,6 @@ main :: proc() {
     showarray(vals)
 
     println()
-    println("Speed for filling up the array :")
+    println("Speed for computing the running sum in-place :")
     println("Millions of i32. per s :", f32(N)/(f32(end-start)/f32(libc.CLOCKS_PER_SEC))/1e6)
 }
