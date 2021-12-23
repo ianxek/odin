@@ -54,8 +54,7 @@ Here I make a dynamic array, fill it with 32 bit integers (cpp int) and compute 
 so if array is `[1,1,4]` then the running sum is `[1,1+1,1+1+4]`. That sum is computed in-place ;
 what gets timed (in millions of i32 per second) is the latter computation, not the filling up of the array.
 
-__Results__ : For my initial try, with full compiler optimization, Odin is 5 times slower as
-CPP compiled with clang12 and -O3,
-which means it is about as fast as CPP compiled with no optimization.
-_N.B. That is before feedback from the community_ : I will post an additional modified code after
-the probable suggested modifications.
+__Results__ : For my initial try, with full compiler optimization, Odin (version
+dev-2021-12:0548db42) is 5 times slower as CPP compiled with clang12 and -O3, which means it is
+about as fast as CPP compiled with no optimization.  _N.B. That is before feedback from the
+community_ : I will post an additional modified code after the probable suggested modifications.

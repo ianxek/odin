@@ -1,5 +1,14 @@
-// We time the running sum of an array of ints
+// Running sum microbenchmark
+//
+// Yann Le Du
+// December 2021
+//
+// We time the running sum of an array of i32s
 // Benchmark idea taken from https://lemire.me/blog/2012/07/23/is-cc-worth-it/
+//
+// My best results were obtained with :
+//
+// odin build bench001.odin -o:speed -no-bounds-check 
 
 package main
 
@@ -10,12 +19,12 @@ main :: proc() {
     using fmt
 
     N :: 50_000_000
-    Vector :: [dynamic]int
+    Vector :: [dynamic]i32
 
-    givemeanarray :: proc(N: uint) -> Vector {
+    givemeanarray :: proc(N: u32) -> Vector {
         // Create an array of length N on the heap and return it filled it with values
         bigarray:= make(Vector, 0, N)
-        for k :uint= 0; k< N; k+=1 do append(&bigarray, int(k+k/3))
+        for k :u32= 0; k< N; k+=1 do append(&bigarray, i32(k+k/3))
         return bigarray
     }
 
@@ -45,7 +54,7 @@ main :: proc() {
 
     println()
     println("Speed for filling up the array :")
-    println("Millions of int. per s :", f32(N)/(f32(end-start)/f32(libc.CLOCKS_PER_SEC))/1e6)
+    println("Millions of i32. per s :", f32(N)/(f32(end-start)/f32(libc.CLOCKS_PER_SEC))/1e6)
 
     // Now computing the running sum
     start = libc.clock()
@@ -58,5 +67,5 @@ main :: proc() {
 
     println()
     println("Speed for filling up the array :")
-    println("Millions of int. per s :", f32(N)/(f32(end-start)/f32(libc.CLOCKS_PER_SEC))/1e6)
+    println("Millions of i32. per s :", f32(N)/(f32(end-start)/f32(libc.CLOCKS_PER_SEC))/1e6)
 }
