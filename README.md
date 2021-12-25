@@ -58,3 +58,15 @@ __Results__ : For my initial try, with full compiler optimization, Odin (version
 dev-2021-12:0548db42) is 5 times slower as CPP compiled with clang12 and -O3, which means it is
 about as fast as CPP compiled with no optimization.  _N.B. That is before feedback from the
 community_ : I will post an additional modified code after the probable suggested modifications.
+
+## bench002 : Random linear congruential generator
+
+I generate millions of random numbers using a simple linear congruential generator I took from [one
+of Lemire's
+codes](https://github.com/lemire/Code-used-on-Daniel-Lemire-s-blog/blob/master/2018/01/02/simdfasta.c).
+
+__Results__ : I get the same speed for Odin and C ! And it turns out to be the nealry the same as
+the single threaded Java version described in [Lemire's blog
+entry](https://lemire.me/blog/2016/02/01/default-random-number-generators-are-slow/), and I say
+comparable because I used another version of Lemire's LCG and not the one described in that blog
+entry which I didn't understand (he shifts bits around).
